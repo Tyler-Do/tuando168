@@ -1,47 +1,241 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Your Name</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đỗ Mạnh-Tuấn | AI & Research</title>
   <style>
-    body { font-family: Arial; max-width: 900px; margin: auto; padding: 2rem; }
-    img { width: 150px; border-radius: 50%; }
-    .header { display: flex; align-items: center; gap: 20px; }
+    /* ========== Variables & Reset ========== */
+    :root {
+      --primary: #1a237e;       /* deep indigo */
+      --accent: #ff6f00;        /* vibrant orange */
+      --bg: #f5f5f5;
+      --text: #333;
+      --light: #fff;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height:1.5; }
+    a { color: var(--accent); text-decoration:none; }
+    img { max-width:100%; display:block; }
+
+    /* ========== Navbar ========== */
+    nav { position: sticky; top:0; background: var(--primary); padding: .5rem 2rem; z-index:10; }
+    nav ul { display:flex; list-style:none; justify-content: center; }
+    nav li { margin: 0 .8rem; }
+    nav a { color: var(--light); font-weight:600; transition: .3s; }
+    nav a:hover { color: var(--accent); }
+
+    /* ========== Hero ========== */
+    .hero { display:flex; flex-wrap: wrap; align-items:center; justify-content:center; text-align:center;
+            padding:4rem 2rem; background: linear-gradient(120deg, var(--primary), var(--accent)); color:var(--light);}
+    .hero img { width:180px; height:180px; border-radius:50%; border:4px solid var(--light); margin-bottom:1rem; }
+    .hero h1 { font-size:2.5rem; margin-bottom:.3rem; }
+    .hero p { font-size:1.2rem; opacity:.9; }
+
+    /* ========== Section Titles ========== */
+    section { padding:3rem 2rem; max-width:1000px; margin:auto; }
+    h2 { font-size:2rem; margin-bottom:1rem; color: var(--primary); border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:.2rem; }
+
+    /* ========== About Tabs ========== */
+    .tabs { display:flex; margin-top:1rem; }
+    .tabs button { flex:1; padding:.8rem; cursor:pointer; background: var(--light); border:1px solid #ccc; }
+    .tabs button.active { background: var(--accent); color: var(--light); border-color: var(--accent); }
+    .tab-content { border:1px solid #ccc; border-top:none; padding:1rem; background: var(--light); }
+    .tab-content > div { display:none; }
+    .tab-content > div.active { display:block; }
+
+    /* ========== Research Interests ========== */
+    .icons-list { display:flex; flex-wrap:wrap; gap:1.2rem; margin-top:1rem; }
+    .icons-list li { flex: 1 1 200px; list-style:none; background: var(--light); padding:1rem; text-align:center; 
+                     border:1px solid #ddd; border-radius:8px; transition:.3s; }
+    .icons-list li:hover { box-shadow:0 2px 8px rgba(0,0,0,.1); }
+    .icons-list img { width:40px; margin-bottom:.5rem; }
+
+    /* ========== Projects Grid ========== */
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; }
+    .card { background: var(--light); border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,.1); transition:.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow:0 4px 12px rgba(0,0,0,.15); }
+    .card img { height:160px; object-fit:cover; }
+    .card-content { padding:1rem; }
+    .card-content h3 { margin-bottom:.5rem; color:var(--primary); }
+    .card-content p { font-size:.95rem; margin-bottom:.8rem; }
+    .card-content .links a { margin-right:.8rem; font-weight:600; }
+
+    /* ========== Accordion Publications ========== */
+    .accordion .item { margin-bottom:.6rem; }
+    .accordion button { width:100%; background:var(--accent); color:var(--light); border:none; 
+                        padding:.8rem 1rem; text-align:left; font-size:1rem; cursor:pointer; }
+    .accordion .content { display:none; padding:1rem; border:1px solid #ccc; border-top:none; background:var(--light); }
+    .accordion .item.open .content { display:block; }
+
+    /* ========== Challenge Myself ========== */
+    .challenge-list li { background: var(--light); padding:1rem; margin-bottom:.8rem; border-radius:6px;
+                         border-left:4px solid var(--accent); }
+    .challenge-list li a { margin-right:1rem; font-weight:600; }
+
+    /* ========== Footer ========== */
+    footer { background:#222; color:#eee; padding:2rem; text-align:center; }
+    footer a { color: #ffab40; }
+
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <img src="yourphoto.jpg" alt="Your Photo">
+  <!-- Nav -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#blog">Challenge</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <img src="yourphoto.jpg" alt="Avatar">
     <div>
-      <h1>Your Name</h1>
-      <p>Position | University</p>
-      <p>Email: your.email@example.com</p>
-      <p>
-        <a href="#">Google Scholar</a> |
-        <a href="#">GitHub</a> |
-        <a href="#">LinkedIn</a>
-      </p>
+      <h1>Đỗ Mạnh-Tuấn</h1>
+      <p>AI & Computer Vision Enthusiast | M.Sc. Student @Paris-Saclay</p>
     </div>
-  </div>
+  </section>
 
-  <h2>Research Interests</h2>
-  <ul>
-    <li>Efficient AI</li>
-    <li>Computer Vision</li>
-    <li>Diffusion Models</li>
-  </ul>
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Tôi là cử nhân Điện-Cơ tại Đại học Quốc gia Hà Nội (Valedictorian), hiện đang theo học thạc sĩ chuyên ngành Computer Vision & AI tại Paris-Saclay University. Tôi đam mê nghiên cứu các mô hình học sâu hiệu quả, 3D reconstruction và ứng dụng trong y sinh.</p>
+    <div class="tabs">
+      <button class="active" data-tab="edu">Education</button>
+      <button data-tab="exp">Experience</button>
+    </div>
+    <div class="tab-content">
+      <div id="edu" class="active">
+        <ul>
+          <li><strong>2021-2023:</strong> M.Sc. Computer Vision, Paris-Saclay University</li>
+          <li><strong>2017-2021:</strong> B.Sc. Mechatronics, VNU-HN (Valedictorian)</li>
+        </ul>
+      </div>
+      <div id="exp">
+        <ul>
+          <li><strong>2024:</strong> Research Intern @Google AI, Snap, MERL</li>
+          <li><strong>2023-Present:</strong> Teaching Assistant, Paris-Saclay University</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <h2>Openings</h2>
-  <ul>
-    <li>Looking for interns and PhD students interested in deep learning.</li>
-  </ul>
+  <!-- Research Interests -->
+  <section id="research">
+    <h2>Research Interests</h2>
+    <ul class="icons-list">
+      <li><img src="https://i.imgur.com/YOUR_ICON1.png" alt=""><br>Efficient Deep Learning</li>
+      <li><img src="https://i.imgur.com/YOUR_ICON2.png" alt=""><br>3D Reconstruction (NeRF)</li>
+      <li><img src="https://i.imgur.com/YOUR_ICON3.png" alt=""><br>Diffusion Models</li>
+      <li><img src="https://i.imgur.com/YOUR_ICON4.png" alt=""><br>Medical Image Analysis</li>
+    </ul>
+  </section>
 
-  <h2>Recent News</h2>
-  <ul>
-    <li><strong>2025/06</strong>: Paper accepted at CVPR!</li>
-    <li><strong>2025/05</strong>: Gave a talk at NeurIPS Workshop.</li>
-  </ul>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Key Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="thumb-strawberry.jpg" alt="Strawberry Detection">
+        <div class="card-content">
+          <h3>Crop Health Detection</h3>
+          <p>Lightweight YOLOv8 + Transformer for real-time strawberry disease detection.</p>
+          <p class="links">
+            <a href="https://github.com/yourrepo1">GitHub</a>
+            <a href="https://colab.research.google.com/yourcolab1">Colab</a>
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="thumb-sfm.jpg" alt="SfM Pipeline">
+        <div class="card-content">
+          <h3>Enhanced SfM Pipeline</h3>
+          <p>Integrating SuperPoint, SuperGlue & bundle adjustment for robust 3D reconstruction.</p>
+          <p class="links">
+            <a href="https://github.com/yourrepo2">GitHub</a>
+            <a href="https://colab.research.google.com/yourcolab2">Colab</a>
+          </p>
+        </div>
+      </div>
+      <!-- Thêm nhiều card tùy thích -->
+    </div>
+  </section>
 
+  <!-- Publications -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="accordion">
+      <div class="item">
+        <button>2025: “Efficient Transformer Loss for Satellite Imagery” – Multimedia Tools & Applications</button>
+        <div class="content">
+          <p>Proposed a cost-sensitive loss for transformer-based detectors to improve aircraft detection.</p>
+          <p><a href="#">PDF</a> | <a href="#">DOI</a></p>
+        </div>
+      </div>
+      <div class="item">
+        <button>2024: “Real-Time Surgical Tool Detection” – Q1 Journal</button>
+        <div class="content">
+          <p>Developed a real-time deep learning framework achieving state-of-the-art FID and accuracy.</p>
+          <p><a href="#">PDF</a> | <a href="#">DOI</a></p>
+        </div>
+      </div>
+      <!-- Thêm publications -->
+    </div>
+  </section>
+
+  <!-- Challenge Myself Blog -->
+  <section id="blog">
+    <h2>💡 Challenge Myself</h2>
+    <ul class="challenge-list">
+      <li>
+        <strong>Implement SIoU Loss in PyTorch</strong><br>
+        <a href="https://github.com/yourrepo-siou">GitHub</a>
+        <a href="https://colab.research.google.com/yourcolab-siou">Colab</a>
+        <a href="https://youtu.be/yourvideo-siou">YouTube</a>
+      </li>
+      <li>
+        <strong>NeRF from Scratch</strong><br>
+        <a href="https://github.com/yourrepo-nerf">GitHub</a>
+        <a href="https://colab.research.google.com/yourcolab-nerf">Colab</a>
+        <a href="https://youtu.be/yourvideo-nerf">YouTube</a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer id="contact">
+    <p>Email: <a href="mailto:domanhtuan824@gmail.com">domanhtuan824@gmail.com</a></p>
+    <p>
+      <a href="https://scholar.google.com/citations?user=XXXXXX">Google Scholar</a> |
+      <a href="https://github.com/tuando168">GitHub</a> |
+      <a href="https://www.linkedin.com/in/tuando168">LinkedIn</a>
+    </p>
+    <p>© 2025 Đỗ Mạnh-Tuấn</p>
+  </footer>
+
+  <script>
+    // Tabs logic
+    document.querySelectorAll('.tabs button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('.tab-content > div').forEach(c=>c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+    // Accordion logic
+    document.querySelectorAll('.accordion .item button').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        const item = b.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+  </script>
 </body>
 </html>
