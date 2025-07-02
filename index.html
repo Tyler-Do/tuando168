@@ -19,48 +19,46 @@
       line-height: 1.6;       /* tăng khoảng cách giữa các dòng */
       margin-bottom: 1.5em;   /* cách đoạn tiếp theo 1.5em */
     }
-    /* Research Interests */
+    /* —— Research Interests Styling —— */
     #research {
       padding: 3rem 2rem;
-      background: #fff;
+      background: var(--light);
     }
     #research h2 {
       font-size: 2rem;
       color: var(--primary);
       margin-bottom: 1.5rem;
       position: relative;
+      display: inline-block;
     }
     #research h2::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -0.3rem;
-      width: 50px;
-      height: 4px;
+      left: 0; bottom: -6px;
+      width: 60px; height: 4px;
       background: var(--accent);
       border-radius: 2px;
     }
     
+    /* Grid container */
     .research-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
       list-style: none;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
     }
     
+    /* Card base */
     .card {
+      position: relative;
       background: #fafafa;
       border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
+      border-top: 4px solid var(--accent);
+      padding: 2rem 1.5rem 1.5rem;
+      overflow: visible;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-top: 4px solid var(--accent);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     
     .card:hover {
@@ -68,34 +66,42 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
     
+    /* Icon circle */
     .icon-wrapper {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      width: 70px;
-      height: 70px;
+      position: absolute;
+      top: -35px;      /* half of wrapper height + border thickness */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2;
     }
     
     .icon-wrapper img {
-      width: 40px;
-      height: 40px;
-      filter: invert(1);
+      width: 40px; height: 40px;
+      /* filter: invert(1); /* uncomment if icon is dark and you want it white */ */
     }
     
-    .card h3 {
+    /* Text container */
+    .card-content {
+      margin-top: 1.5rem;  /* clear space under the icon */
+      text-align: center;
+    }
+    
+    .card-content h3 {
       font-size: 1.1rem;
-      margin-bottom: 0.5rem;
       color: var(--primary);
+      margin-bottom: 0.5rem;
     }
     
-    .card p {
+    .card-content p {
       font-size: 0.9rem;
       color: #555;
       line-height: 1.4;
     }
+
 
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height:1.5; }
@@ -259,29 +265,37 @@
       <div class="icon-wrapper">
         <img src="https://i.imgur.com/YOUR_ICON1.png" alt="Efficient DL">
       </div>
-      <h3>Efficient Deep Learning</h3>
-      <p>Network pruning, quantization & lightweight architectures</p>
+      <div class="card-content">
+        <h3>Efficient Deep Learning</h3>
+        <p>Network pruning, quantization &amp; lightweight architectures</p>
+      </div>
     </li>
     <li class="card">
       <div class="icon-wrapper">
         <img src="https://i.imgur.com/YOUR_ICON2.png" alt="3D NeRF">
       </div>
-      <h3>3D Reconstruction (NeRF)</h3>
-      <p>Neural radiance fields & novel-view synthesis</p>
+      <div class="card-content">
+        <h3>3D Reconstruction (NeRF)</h3>
+        <p>Neural radiance fields &amp; novel-view synthesis</p>
+      </div>
     </li>
     <li class="card">
       <div class="icon-wrapper">
-        <img src="https://i.imgur.com/YOUR_ICON3.png" alt="Diffusion">
+        <img src="https://i.imgur.com/YOUR_ICON3.png" alt="Diffusion Models">
       </div>
-      <h3>Diffusion Models</h3>
-      <p>Generative modeling & image synthesis</p>
+      <div class="card-content">
+        <h3>Diffusion Models</h3>
+        <p>Generative modeling &amp; image synthesis</p>
+      </div>
     </li>
     <li class="card">
       <div class="icon-wrapper">
-        <img src="https://i.imgur.com/YOUR_ICON4.png" alt="Medical">
+        <img src="https://i.imgur.com/YOUR_ICON4.png" alt="Medical Image Analysis">
       </div>
-      <h3>Medical Image Analysis</h3>
-      <p>Segmentation, detection & diagnostic AI</p>
+      <div class="card-content">
+        <h3>Medical Image Analysis</h3>
+        <p>Segmentation, detection &amp; diagnostic AI</p>
+      </div>
     </li>
   </ul>
 </section>
