@@ -19,18 +19,19 @@
       line-height: 1.6;       /* tăng khoảng cách giữa các dòng */
       margin-bottom: 1.5em;   /* cách đoạn tiếp theo 1.5em */
     }
-    /* —— Research Interests Styling —— */
-  /* —— Research Interests Styling —— */
+    
+    /* —— Research Interests Styling - FIXED VERSION —— */
     #research {
-      padding: 3rem 2rem;
+      padding: 5rem 2rem 3rem 2rem; /* Tăng padding-top để có chỗ cho icon */
       background: var(--light);
+      position: relative; /* Quan trọng để icon có thể định vị tuyệt đối */
     }
     
     /* Section title with underline */
     #research h2 {
       font-size: 2rem;
       color: var(--primary);
-      margin-bottom: 1.5rem;
+      margin-bottom: 3rem; /* Tăng margin-bottom để tạo khoảng trống cho icon */
       position: relative;
       display: inline-block;
     }
@@ -49,22 +50,22 @@
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
       list-style: none;
-      margin: 0; padding: 0;
-    
-      /* Important: allow children to overflow so icons aren’t clipped */
-      overflow: visible;
+      margin: 2rem 0 0 0; /* Thêm margin-top để tạo khoảng trống */
+      padding: 0;
+      position: relative; /* Cho phép children absolute positioning */
     }
     
-    /* Card base */
+    /* Card base - FIXED */
     .card {
       position: relative;
       background: #fafafa;
       border-radius: 12px;
       border-top: 4px solid var(--accent);
-      padding: 2rem 1.5rem 1.5rem;
-      overflow: visible;              /* allow the icon to hang outside */
+      padding: 3rem 1.5rem 1.5rem; /* Tăng padding-top để có chỗ cho icon */
+      margin-top: 35px; /* Tạo khoảng trống phía trên để icon không bị cắt */
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: visible; /* Cho phép icon hiển thị bên ngoài */
     }
     
     .card:hover {
@@ -72,36 +73,42 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
     
-    /* Icon circle, absolutely positioned above the card’s top border */
+    /* Icon circle - FIXED positioning */
     .icon-wrapper {
       position: absolute;
-      top: -35px;                     /* half of 70px height + 4px border */
+      top: -35px; /* Đặt icon trên cùng của card */
       left: 50%;
       transform: translateX(-50%);
-      width: 70px; height: 70px;
+      width: 70px; 
+      height: 70px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
       z-index: 2;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Thêm shadow cho icon */
     }
     
-    /* Your icon inside the circle */
-    .icon-wrapper img {
-      width: 40px; height: 40px;
-      /* If your icon is dark-on-transparent: uncomment to invert to white */
-      /* filter: invert(1); */
+    /* Icon placeholder - sử dụng Unicode symbols thay vì img */
+    .icon-wrapper::before {
+      content: attr(data-icon);
+      font-size: 32px;
+      color: white;
+      font-weight: bold;
     }
     
-    /* Text container moved down to clear the icon overlap */
+    /* Text container */
     .card-content {
-      margin-top: 1.5rem;
       text-align: center;
+      margin-top: 0.5rem;
     }
     
     .card-content h3 {
       font-size: 1.1rem;
       color: var(--primary);
       margin-bottom: 0.5rem;
+      font-weight: 600;
     }
     
     .card-content p {
@@ -110,7 +117,7 @@
       line-height: 1.4;
     }
 
-
+    /* ========== Other styles remain the same ========== */
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height:1.5; }
     a { color: var(--accent); text-decoration:none; }
@@ -142,22 +149,15 @@
     .tab-content > div { display:none; }
     .tab-content > div.active { display:block; }
 
-    /* ========== Research Interests ========== */
-    .icons-list { display:flex; flex-wrap:wrap; gap:1.2rem; margin-top:1rem; }
-    .icons-list li { flex: 1 1 200px; list-style:none; background: var(--light); padding:1rem; text-align:center; 
-                     border:1px solid #ddd; border-radius:8px; transition:.3s; }
-    .icons-list li:hover { box-shadow:0 2px 8px rgba(0,0,0,.1); }
-    .icons-list img { width:40px; margin-bottom:.5rem; }
-
     /* ========== Projects Grid ========== */
     .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; }
-    .card { background: var(--light); border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,.1); transition:.3s; }
-    .card:hover { transform: translateY(-5px); box-shadow:0 4px 12px rgba(0,0,0,.15); }
-    .card img { height:160px; object-fit:cover; }
-    .card-content { padding:1rem; }
-    .card-content h3 { margin-bottom:.5rem; color:var(--primary); }
-    .card-content p { font-size:.95rem; margin-bottom:.8rem; }
-    .card-content .links a { margin-right:.8rem; font-weight:600; }
+    .project-card { background: var(--light); border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,.1); transition:.3s; }
+    .project-card:hover { transform: translateY(-5px); box-shadow:0 4px 12px rgba(0,0,0,.15); }
+    .project-card img { height:160px; object-fit:cover; }
+    .project-card-content { padding:1rem; }
+    .project-card-content h3 { margin-bottom:.5rem; color:var(--primary); }
+    .project-card-content p { font-size:.95rem; margin-bottom:.8rem; }
+    .project-card-content .links a { margin-right:.8rem; font-weight:600; }
 
     /* ========== Accordion Publications ========== */
     .accordion .item { margin-bottom:.6rem; }
@@ -194,13 +194,13 @@
   <!-- Hero -->
   <section class="hero" id="hero">
     <img
-      src="avatar.jpg"
+      src="https://via.placeholder.com/180x180/1a237e/ffffff?text=Avatar"
       alt="Avatar"
       style="width:180px; height:180px; object-fit:cover; border-radius:50%; border:4px solid white;"
     >
     <div>
       <h1>Manh Tuan Do</h1>
-      <p>AI & Computer Vision Enthusiast | M.Sc. Student @Paris-Saclay</p>
+      <p>AI & Computer Vision Enthusiast | M.Sc. Student @Paris-Saclay</p>
     </div>
   </section>
 
@@ -213,31 +213,22 @@
     <a href="https://scholar.google.com/citations?user=MhdodIIAAAAJ&hl=vi">Dr. Ha Manh Hung</a> 
     and conducted research work with 
     <a href="https://ee.ccu.edu.tw/p/412-1097-558.php?Lang=en">Prof. Oscal T.-C. Chen</a>.  
-    In 2024, I received a fully-funded scholarship for a Master’s M1 in Electrical Engineering (Computer Vision & AI track) at Paris-Saclay University.  
+    In 2024, I received a fully-funded scholarship for a Master's M1 in Electrical Engineering (Computer Vision & AI track) at Paris-Saclay University.  
     Now I am studying M2 in Mechatronics, Machine Vision, and Artificial Intelligence also at Paris-Saclay University, and I am fortunate and honored to be a research intern at Westlake under the guidance of 
     <a href="https://huanwang.tech" target="_blank">Prof. Huan Wang</a>.
   </p>
-   <p>
-
-   </p>
 
   <p>
     In terms of my research interests, initially, when I was a bachelor student combined with the foundation in robotics and mechatronics, I decided to focus on AI applications including the implementation of AI lightweight models into hardware, embedded systems, microcontrollers to make the system more intelligent in course projects and student research.  
     Up to the thesis, I began modifying the architecture of models by finding ways to optimize the model for lightweight and accuracy improvements in the object detection problem, specifically in the YOLO model.
   </p>
-  <p>
 
-  </p>
   <p>
     Recently, I have been exploring 3D object detection and 3D reconstruction using geometric methods like SFM and using DNNs like NeRF.  
     Besides, I have studied GAN-based data augmentation and unpaired neural style transfer between images of two classes (cow, horse).  
   </p>
 
-   <p>
-
-  </p>
   <p>
-  
     May not yet I have a pure foundation in math or computer science, but I can affirm that I am on the journey to becoming a genuine AI research expert in the near future. Waiting for me !!
   </p>
 
@@ -263,44 +254,33 @@
   </div>
 </section>
 
-
-
-<!-- Research Interests --> 
-<!-- Research Interests --> 
+<!-- Research Interests - FIXED VERSION --> 
 <section id="research">
   <h2>Research Interests</h2>
   <ul class="research-grid">
     <li class="card">
-      <div class="icon-wrapper">
-        <img src="https://i.imgur.com/YOUR_ICON1.png" alt="Efficient DL">
-      </div>
+      <div class="icon-wrapper" data-icon="⚡"></div>
       <div class="card-content">
         <h3>Efficient Deep Learning</h3>
         <p>Network pruning, quantization &amp; lightweight architectures</p>
       </div>
     </li>
     <li class="card">
-      <div class="icon-wrapper">
-        <img src="https://i.imgur.com/YOUR_ICON2.png" alt="3D NeRF">
-      </div>
+      <div class="icon-wrapper" data-icon="🎯"></div>
       <div class="card-content">
         <h3>3D Reconstruction (NeRF)</h3>
         <p>Neural radiance fields &amp; novel-view synthesis</p>
       </div>
     </li>
     <li class="card">
-      <div class="icon-wrapper">
-        <img src="https://i.imgur.com/YOUR_ICON3.png" alt="Diffusion Models">
-      </div>
+      <div class="icon-wrapper" data-icon="🌊"></div>
       <div class="card-content">
         <h3>Diffusion Models</h3>
         <p>Generative modeling &amp; image synthesis</p>
       </div>
     </li>
     <li class="card">
-      <div class="icon-wrapper">
-        <img src="https://i.imgur.com/YOUR_ICON4.png" alt="Medical Image Analysis">
-      </div>
+      <div class="icon-wrapper" data-icon="🏥"></div>
       <div class="card-content">
         <h3>Medical Image Analysis</h3>
         <p>Segmentation, detection &amp; diagnostic AI</p>
@@ -309,15 +289,13 @@
   </ul>
 </section>
 
-
-
   <!-- Projects -->
   <section id="projects">
     <h2>Key Projects</h2>
     <div class="grid">
-      <div class="card">
-        <img src="thumb-strawberry.jpg" alt="Strawberry Detection">
-        <div class="card-content">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x160/ff6f00/ffffff?text=Strawberry" alt="Strawberry Detection">
+        <div class="project-card-content">
           <h3>Crop Health Detection</h3>
           <p>Lightweight YOLOv8 + Transformer for real-time strawberry disease detection.</p>
           <p class="links">
@@ -326,9 +304,9 @@
           </p>
         </div>
       </div>
-      <div class="card">
-        <img src="thumb-sfm.jpg" alt="SfM Pipeline">
-        <div class="card-content">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x160/1a237e/ffffff?text=SfM" alt="SfM Pipeline">
+        <div class="project-card-content">
           <h3>Enhanced SfM Pipeline</h3>
           <p>Integrating SuperPoint, SuperGlue & bundle adjustment for robust 3D reconstruction.</p>
           <p class="links">
@@ -337,18 +315,16 @@
           </p>
         </div>
       </div>
-      <!-- Thêm nhiều card tùy thích -->
     </div>
   </section>
 
   <!-- Publications -->
-<!-- Publications -->
   <section id="publications">
     <h2>Publications</h2>
     <div class="accordion">
   
       <div class="item">
-        <button>2024: Do et al., “Towards Improving Precision and Complexity of Transformer-based Cost-sensitive Learning Models for Plant Disease Detection” – Frontiers in Computer Science (Q1)</button>
+        <button>2024: Do et al., "Towards Improving Precision and Complexity of Transformer-based Cost-sensitive Learning Models for Plant Disease Detection" – Frontiers in Computer Science (Q1)</button>
         <div class="content">
           <p>First-author: proposed a cost-sensitive loss for transformer detectors in real-time plant disease detection.</p>
           <p>
@@ -359,7 +335,7 @@
       </div>
   
       <div class="item">
-        <button>2024: Nguyen et al., “Towards Lightweight Model Using Non-local-based Graph Convolution Neural Network for SQL Injection Detection” – Egyptian Informatics Journal (Q1)</button>
+        <button>2024: Nguyen et al., "Towards Lightweight Model Using Non-local-based Graph Convolution Neural Network for SQL Injection Detection" – Egyptian Informatics Journal (Q1)</button>
         <div class="content">
           <p>Developed a non-local GCN architecture for SQL-injection detection with high accuracy and low complexity.</p>
           <p>
@@ -369,7 +345,7 @@
       </div>
   
       <div class="item">
-        <button>2024: Nguyen et al., “Lightweight Graph Convolutional Network Based On Multi-Head Residual Attention For Hand Point Classification” – IEEE International Conference on Visual Communications and Image Processing</button>
+        <button>2024: Nguyen et al., "Lightweight Graph Convolutional Network Based On Multi-Head Residual Attention For Hand Point Classification" – IEEE International Conference on Visual Communications and Image Processing</button>
         <div class="content">
           <p>Introduced a multi-head residual attention GCN to improve hand-point classification in visual communication tasks.</p>
           <p>
@@ -379,7 +355,7 @@
       </div>
   
       <div class="item">
-        <button>2024: Do et al., “You Only Look Once Based-C2fGhost Using Efficient CIoU Loss Function for Airplane Detection” – 9th International Conference on Frontiers of Signal Processing, France</button>
+        <button>2024: Do et al., "You Only Look Once Based-C2fGhost Using Efficient CIoU Loss Function for Airplane Detection" – 9th International Conference on Frontiers of Signal Processing, France</button>
         <div class="content">
           <p>Enhanced YOLO-Ghost with C2f and CIoU loss to boost airplane detection accuracy on satellite imagery.</p>
           <p>
@@ -389,7 +365,7 @@
       </div>
   
       <div class="item">
-        <button>2024: Nguyen et al., “RHM: Novel Graph Convolution Based on Non-Local Network for SQL Injection Identification” – ISIE 2024 (33rd International Symposium on Industrial Electronics)</button>
+        <button>2024: Nguyen et al., "RHM: Novel Graph Convolution Based on Non-Local Network for SQL Injection Identification" – ISIE 2024 (33rd International Symposium on Industrial Electronics)</button>
         <div class="content">
           <p>Proposed RHM, a non-local GCN variant, achieving state-of-the-art performance on SQL injection datasets.</p>
           <p>
@@ -399,7 +375,7 @@
       </div>
   
       <div class="item">
-        <button>2024: Nguyen et al., “Plant Pathology Identification Using Local-Global Feature Level Based on Transformer” – Indonesian Journal of Electrical Engineering and Computer Science (Q3)</button>
+        <button>2024: Nguyen et al., "Plant Pathology Identification Using Local-Global Feature Level Based on Transformer" – Indonesian Journal of Electrical Engineering and Computer Science (Q3)</button>
         <div class="content">
           <p>Applied transformer-based local-global feature fusion for plant pathology classification with high F1-score.</p>
           <p>
@@ -409,7 +385,7 @@
       </div>
   
       <div class="item">
-        <button>2024: Kim et al., “An Effective Approach Utilizing Deep Learning for Detecting Lychee at Different Development Stages” – The Journal of Food Process Engineering (under review, Q2)</button>
+        <button>2024: Kim et al., "An Effective Approach Utilizing Deep Learning for Detecting Lychee at Different Development Stages" – The Journal of Food Process Engineering (under review, Q2)</button>
         <div class="content">
           <p>Demonstrated a CNN-based detector for lychee ripeness stages, achieving 92% accuracy across varied lighting.</p>
           <p>
@@ -419,7 +395,7 @@
       </div>
   
       <div class="item">
-        <button>2023: Do et al., “You Only Look Once Based on Yolo Backbones-Transformer in UAVs” – International Conference on System Science and Engineering</button>
+        <button>2023: Do et al., "You Only Look Once Based on Yolo Backbones-Transformer in UAVs" – International Conference on System Science and Engineering</button>
         <div class="content">
           <p>Integrated transformer modules into YOLO for robust UAV-based human detection in diverse environments.</p>
           <p>
@@ -429,7 +405,7 @@
       </div>
   
       <div class="item">
-        <button>2023: Do et al., “An Improved YOLOv5 for Personal Protective Equipment Detection in Real Construction Site” – International Conference on Computing and Communication Technologies</button>
+        <button>2023: Do et al., "An Improved YOLOv5 for Personal Protective Equipment Detection in Real Construction Site" – International Conference on Computing and Communication Technologies</button>
         <div class="content">
           <p>Enhanced YOLOv5 with targeted augmentations and attention, achieving 95% mAP for PPE detection on site.</p>
           <p>
@@ -440,7 +416,6 @@
   
     </div>
   </section>
-
 
   <!-- Challenge Myself Blog -->
   <section id="blog">
