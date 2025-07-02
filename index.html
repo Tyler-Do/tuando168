@@ -19,6 +19,83 @@
       line-height: 1.6;       /* tăng khoảng cách giữa các dòng */
       margin-bottom: 1.5em;   /* cách đoạn tiếp theo 1.5em */
     }
+    /* Research Interests */
+    #research {
+      padding: 3rem 2rem;
+      background: #fff;
+    }
+    #research h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    #research h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 50px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .card {
+      background: #fafafa;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid var(--accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    
+    .icon-wrapper {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    
+    .icon-wrapper img {
+      width: 40px;
+      height: 40px;
+      filter: invert(1);
+    }
+    
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.4;
+    }
 
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height:1.5; }
@@ -173,16 +250,42 @@
 </section>
 
 
-  <!-- Research Interests -->
-  <section id="research">
-    <h2>Research Interests</h2>
-    <ul class="icons-list">
-      <li><img src="https://i.imgur.com/YOUR_ICON1.png" alt=""><br>Efficient Deep Learning</li>
-      <li><img src="https://i.imgur.com/YOUR_ICON2.png" alt=""><br>3D Reconstruction (NeRF)</li>
-      <li><img src="https://i.imgur.com/YOUR_ICON3.png" alt=""><br>Diffusion Models</li>
-      <li><img src="https://i.imgur.com/YOUR_ICON4.png" alt=""><br>Medical Image Analysis</li>
-    </ul>
-  </section>
+
+<!-- Research Interests --> 
+<section id="research">
+  <h2>Research Interests</h2>
+  <ul class="research-grid">
+    <li class="card">
+      <div class="icon-wrapper">
+        <img src="https://i.imgur.com/YOUR_ICON1.png" alt="Efficient DL">
+      </div>
+      <h3>Efficient Deep Learning</h3>
+      <p>Network pruning, quantization & lightweight architectures</p>
+    </li>
+    <li class="card">
+      <div class="icon-wrapper">
+        <img src="https://i.imgur.com/YOUR_ICON2.png" alt="3D NeRF">
+      </div>
+      <h3>3D Reconstruction (NeRF)</h3>
+      <p>Neural radiance fields & novel-view synthesis</p>
+    </li>
+    <li class="card">
+      <div class="icon-wrapper">
+        <img src="https://i.imgur.com/YOUR_ICON3.png" alt="Diffusion">
+      </div>
+      <h3>Diffusion Models</h3>
+      <p>Generative modeling & image synthesis</p>
+    </li>
+    <li class="card">
+      <div class="icon-wrapper">
+        <img src="https://i.imgur.com/YOUR_ICON4.png" alt="Medical">
+      </div>
+      <h3>Medical Image Analysis</h3>
+      <p>Segmentation, detection & diagnostic AI</p>
+    </li>
+  </ul>
+</section>
+
 
   <!-- Projects -->
   <section id="projects">
