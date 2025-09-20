@@ -5,7 +5,7 @@
 🌐 **Website:** [tyler-do.github.io](https://tyler-do.github.io/tuando168/)
 
 ## 🚀 Featured Projects
-- [Surgical Tool Detection](link) - 95.7% mAP YOLOv8 variants
-- [YOLOv8-Transformer](link) - 90.0% mAP human detection
+- [Surgical Tool Detection](https://github.com/Tyler-Do/Yolov8-Transformer) - 95.7% mAP YOLOv8 variants
+- [YOLOv8-Transformer](https://github.com/Tyler-Do/surgical-tool-detection-yolov8) - 90.0% mAP human detection
 
 📫 **Contact:** domanhtuan824@gmail.com
